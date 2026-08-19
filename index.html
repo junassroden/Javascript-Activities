@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>BASIC EVENT HADNLERS</h1>
+    <button id="onClick">Click Me!</button>
+    <button id="mouseHover">Hover Me!</button>
+    <button id="dbClicked">Double Click!</button>
+
+    <h1>CUSTOM EVENTS</h1>
+    <button id="customEvents">Custom Events</button>
+
+    <h1>Event Bubbling and Capturing</h1>
+    <div
+      id="divParent"
+      style="
+        background-color: aquamarine;
+        height: 100px;
+        display: flex;
+        align-items: center;
+      "
+    >
+      Parent
+      <button id="btnChild">Child</button>
+    </div>
+
+    <script>
+      //number 1
+      const button = document.getElementById("onClick");
+      function handleButtonClick() {
+        alert("Button was clicked!");
+      }
+      button.addEventListener("click", handleButtonClick);
+      //button2
+      const hover = document.getElementById("mouseHover");
+      hover.addEventListener("mouseenter", () => {
+        hover.textContent = "Mouse is over me!";
+        console.log("Mouse is over me!");
+      });
+      hover.addEventListener("mouseleave", () => {
+        hover.textContent = "Hover Me";
+      });
+      //button3
+      const doubleClick = document.getElementById("dbClicked");
+      doubleClick.addEventListener("dblclick", () => {
+        alert("Double Clicked!");
+      });
+
+      //custom events
+      const customEvent = document.getElementById("customEvents");
+      function customEvents() {
+        console.log("Custom helloEvent triggered!");
+      }
+      customEvent.addEventListener("click", customEvents);
+
+      //Event Bubbling and Capturing
+      const parent = document.getElementById("divParent");
+      const child = document.getElementById("btnChild");
+
+      parent.addEventListener(
+        "click",
+        () => console.log("Parent Clicked"),
+        {capture: true},
+      );
+      child.addEventListener("click", () => console.log("Child Click")),
+      {capture: false};
+     ;
+    </script>
+  </body>
+</html>
