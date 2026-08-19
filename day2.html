@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Day 2 JavaScript</title>
+  </head>
+  <body>
+    <h1>Day 2 - Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="First number" />
+    <input type="number" id="num2" placeholder="Second number" />
+
+    <br /><br />
+
+    <button id="add">Add</button>
+    <button id="subtract">Subtract</button>
+    <button id="multiply">Multiply</button>
+    <button id="divide">Divide</button>
+
+    <h2 id="result">Result:</h2>
+
+    <script>
+      const num1Input = document.getElementById("num1");
+      const num2Input = document.getElementById("num2");
+      const resultDisplay = document.getElementById("result");
+
+      document.getElementById("add").addEventListener("click", () => {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 + num2;
+        resultDisplay.textContent = "Result: " + result;
+      });
+
+      document.getElementById("subtract").addEventListener("click", () => {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 - num2;
+        resultDisplay.textContent = "Result: " + result;
+      });
+
+      document.getElementById("multiply").addEventListener("click", () => {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 * num2;
+        resultDisplay.textContent = "Result: " + result;
+      });
+
+      document.getElementById("divide").addEventListener("click", () => {
+        let number1 = Number(num1.value);
+        let number2 = Number(num2.value);
+
+        if (number2 === 0) {
+          result.textContent = "Cannot divide by zero!";
+        } else {
+          let answer = number1 / number2;
+
+          result.textContent = "Result: " + answer;
+        }
+      });
+
+      
+    </script>
+  </body>
+</html>
